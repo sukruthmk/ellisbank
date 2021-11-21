@@ -19,7 +19,7 @@ const handleFontSize = ({ title, large, medium, small, tiny }) => {
   }
 };
 
-const handleFontWeight = ({ light, bold, heavy, black }) => {
+const handleFontWeight = ({ light, bold, heavy, block }) => {
   switch (true) {
     case light:
       return `200`;

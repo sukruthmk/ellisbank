@@ -4,7 +4,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import TouchScreen from "./src/screens/TouchScreen";
-import PinScreen from "./src/screens/PinScreen"
+import PinScreen from "./src/screens/PinScreen";
+import HomeScreen from './src/screens/HomeScreen'
 
 export default function App() {
   const AppStack = createStackNavigator();
@@ -12,8 +13,9 @@ export default function App() {
   return (
     <NavigationContainer>
       <AppStack.Navigator headerMode="none">
-        <AppStack.Screen name="Touch" component={TouchScreen} />
         <AppStack.Screen name="Pin" component={PinScreen} />
+        <AppStack.Screen name="Touch" component={TouchScreen} />
+        <AppStack.Screen name="Home" component={HomeScreen} />
       </AppStack.Navigator>
     </NavigationContainer>
   );
