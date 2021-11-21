@@ -10,11 +10,11 @@ const HomeScreen = () => {
       <Transaction>
         <TransactionInfo>
           <Text heavy>{item.description}</Text>
-          <Text>{item.posted}</Text>
-          <Text>{item.status}</Text>
+          <Text small margin="2px 0 2px 0">{item.posted}</Text>
+          <Text small color="#727479">{item.status}</Text>
         </TransactionInfo>
         <Text>{item.direction}</Text>
-        <Text>{item.amount}</Text>
+        <Text heavy>{item.amount}</Text>
       </Transaction>
   );
   return (
