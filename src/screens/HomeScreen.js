@@ -3,19 +3,26 @@ import styled from "styled-components/native";
 import { FontAwesome5, MaterialIcons, AntDesign } from "@expo/vector-icons";
 
 import Text from "../components/Text";
-import transactionsData from "../db/transactions";
 
-const HomeScreen = () => {
+import transactionsData from "../db/transactions.json";
+import accountData from "../db/account.json";
+import userData from "../db/user.json";
+
+const HomeScreen = ({ navigation }) => {
   const renderTransaction = ({ item }) => (
-      <Transaction>
-        <TransactionInfo>
-          <Text heavy>{item.description}</Text>
-          <Text small margin="2px 0 2px 0">{item.posted}</Text>
-          <Text small color="#727479">{item.status}</Text>
-        </TransactionInfo>
-        <Text>{item.direction}</Text>
-        <Text heavy>{item.amount}</Text>
-      </Transaction>
+    <Transaction>
+      <TransactionInfo>
+        <Text heavy>{item.description}</Text>
+        <Text small margin="2px 0 2px 0">
+          {item.posted}
+        </Text>
+        <Text small color="#727479">
+          {item.status}
+        </Text>
+      </TransactionInfo>
+      <Text>{item.direction}</Text>
+      <Text heavy>{item.amount}</Text>
+    </Transaction>
   );
   return (
     <Container>
@@ -25,13 +32,15 @@ const HomeScreen = () => {
           <Text heavy medium>
             Welcome,
           </Text>
-          <Text>Sukruth</Text>
+          <Text>{userData[0].name_first}</Text>
         </Welcome>
-        <FontAwesome5 name="cog" size={24} color="#565656" />
+        <TouchButton onPress={() => navigation.navigate("UserInfo")}>
+          <FontAwesome5 name="cog" size={24} color="#565656" />
+        </TouchButton>
       </Header>
 
       <Text center title black>
-        $9,184.17
+        {accountData[0].balance}
       </Text>
       <Text center heavy color="#727479">
         Current Balance
@@ -117,6 +126,8 @@ const Transaction = styled.View`
   padding-bottom: 12px;
   margin-bottom: 12px;
 `;
+
+const TouchButton = styled.TouchableOpacity``;
 
 const TransactionInfo = styled.View``;
 
