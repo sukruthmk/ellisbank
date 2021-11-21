@@ -1,20 +1,60 @@
 import React from "react";
 import styled from "styled-components/native";
-import { FontAwesome5 } from "@expo/vector-icons";
+import { FontAwesome5, MaterialIcons, AntDesign } from "@expo/vector-icons";
 
 import Text from "../components/Text";
+import transactionsData from "../db/transactions";
 
 const HomeScreen = () => {
+  const renderTransaction = ({ item }) => (
+      <Transaction>
+        <TransactionInfo>
+          <Text heavy>{item.description}</Text>
+          <Text>{item.posted}</Text>
+          <Text>{item.status}</Text>
+        </TransactionInfo>
+        <Text>{item.direction}</Text>
+        <Text>{item.amount}</Text>
+      </Transaction>
+  );
   return (
     <Container>
       <Header>
         <ProfilePhoto source={require("../../assets/profilePhoto.png")} />
         <Welcome>
-          <Text heavy medium>Welcome,</Text>
+          <Text heavy medium>
+            Welcome,
+          </Text>
           <Text>Sukruth</Text>
         </Welcome>
         <FontAwesome5 name="cog" size={24} color="#565656" />
       </Header>
+
+      <Text center title black>
+        $9,184.17
+      </Text>
+      <Text center heavy color="#727479">
+        Current Balance
+      </Text>
+
+      <Purchases
+        ListHeaderComponent={
+          <>
+            <TransactionsHeader>
+              <Text> Transactions </Text>
+              <MaterialIcons name="sort" size={24} color="#5196f4" />
+            </TransactionsHeader>
+
+            <SearchContainer>
+              <AntDesign name="search1" size={18} color="#5196f4" />
+              <Search placeholder="Search Transactions" />
+            </SearchContainer>
+          </>
+        }
+        data={transactionsData}
+        renderItem={renderTransaction}
+        showVerticalScrollIndicator={false}
+      />
 
       <StatusBar barStyle="light-content" />
     </Container>
@@ -39,9 +79,46 @@ const ProfilePhoto = styled.Image`
 `;
 
 const Welcome = styled.View`
-    flex: 1;
-    padding: 0 16px;
+  flex: 1;
+  padding: 0 16px;
 `;
+
+const Purchases = styled.FlatList`
+  background-color: #2c2c2c;
+  padding: 16px;
+`;
+
+const TransactionsHeader = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const SearchContainer = styled.View`
+  background-color: #3d3d3d;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 8px;
+  margin: 16px 0;
+`;
+
+const Search = styled.TextInput`
+  flex: 1;
+  padding: 8px 16px;
+  font-family: "Avenir";
+  color: #dbdbdb;
+`;
+
+const Transaction = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom-width: 1px;
+  border-bottom-color: #393939;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+`;
+
+const TransactionInfo = styled.View``;
 
 const StatusBar = styled.StatusBar``;
 

@@ -19,7 +19,7 @@ const handleFontSize = ({ title, large, medium, small, tiny }) => {
   }
 };
 
-const handleFontWeight = ({ light, bold, heavy, block }) => {
+const handleFontWeight = ({ light, bold, heavy, black }) => {
   switch (true) {
     case light:
       return `200`;
@@ -27,7 +27,7 @@ const handleFontWeight = ({ light, bold, heavy, block }) => {
       return `600`;
     case heavy:
       return `700`;
-    case block:
+    case black:
       return `900`;
 
     default:
@@ -54,8 +54,8 @@ const Text = styled.Text`
   padding: ${(props) => props.padding ?? 0};
   font-size: ${({ title, large, medium, small, tiny }) =>
     handleFontSize({ title, large, medium, small, tiny })};
-  font-weight: ${({ light, bold, heavy, block }) =>
-    handleFontWeight({ light, bold, heavy, block })};
+  font-weight: ${({ light, bold, heavy, black }) =>
+    handleFontWeight({ light, bold, heavy, black })};
   text-align: ${({ center, right }) => handleTextAlignment({ center, right })};
 `;
 
