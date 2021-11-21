@@ -35,16 +35,29 @@ const handleFontWeight = ({ light, bold, heavy, black }) => {
   }
 };
 
+const handleTextAlignment = ({ center, right }) => {
+  switch (true) {
+    case center:
+      return `center`;
+    case right:
+      return `right`;
+
+    default:
+      return `left`;
+  }
+};
+
 const Text = styled.Text`
-    color: ${(props) => props.color ?? "#D8D8D8"};
-    font-family: "Avenir";
-    margin: ${(props) => props.margin ?? 0};
-    padding: ${(props) => props.padding ?? 0};
-    font-size: ${({ title, large, medium, small, tiny }) =>
-      handleFontSize({ title, large, medium, small, tiny })};
-    font-weight: ${({ light, bold, heavy, block }) =>
-      handleFontWeight({ light, bold, heavy, block })};
-    `;
+  color: ${(props) => props.color ?? "#D8D8D8"};
+  font-family: "Avenir";
+  margin: ${(props) => props.margin ?? 0};
+  padding: ${(props) => props.padding ?? 0};
+  font-size: ${({ title, large, medium, small, tiny }) =>
+    handleFontSize({ title, large, medium, small, tiny })};
+  font-weight: ${({ light, bold, heavy, block }) =>
+    handleFontWeight({ light, bold, heavy, block })};
+  text-align: ${({ center, right }) => handleTextAlignment({ center, right })};
+`;
 
 const TextStyle = ({ ...props }) => {
   return <Text {...props}>{props.children}</Text>;
