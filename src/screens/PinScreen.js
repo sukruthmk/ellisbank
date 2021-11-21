@@ -13,7 +13,7 @@ const PinScreen = ({ navigation }) => {
     if (pinCount === totalPins) {
       navigation.navigate("Home");
     }
-  });
+  }, [pinCount]);
 
   const renderPins = () => {
     const pins = [];
