@@ -3,11 +3,18 @@ import styled from "styled-components/native";
 import { Fontisto } from "@expo/vector-icons";
 
 import Text from "../components/Text";
-import NumberPad from "../components/NumberPad"
+import NumberPad from "../components/NumberPad";
 
 const PinScreen = ({ navigation }) => {
   const [pinCount, setPinCount] = useState(0);
   const totalPins = 6;
+
+  useEffect(() => {
+    if (pinCount === totalPins) {
+      navigation.navigate("Home");
+    }
+  });
+
   const renderPins = () => {
     const pins = [];
     for (let i = 1; i <= totalPins; i++) {
@@ -25,10 +32,11 @@ const PinScreen = ({ navigation }) => {
   };
 
   const pressKey = (_, index) => {
-      setPinCount((prev) => {
-          return index != 10 ? prev + 1 : prev -1;
-      });
+    setPinCount((prev) => {
+      return index != 10 ? prev + 1 : prev - 1;
+    });
   };
+
   return (
     <Container>
       <Text center heavy title color="#964ff0" margin="32px 0 0 0">
@@ -51,7 +59,7 @@ const PinScreen = ({ navigation }) => {
         </Text>
       </UseTouch>
 
-      <NumberPad />
+      <NumberPad onPress={pressKey} />
 
       <StatusBar barStyle="light-content" />
     </Container>
@@ -87,10 +95,10 @@ const PinContainer = styled.View`
 `;
 
 const Pin = styled.View`
-    width: 8px;
-    height: 8px;
-    border-radius: 4px;
-    background-color: #5196f4;
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background-color: #5196f4;
 `;
 
 const StatusBar = styled.StatusBar``;

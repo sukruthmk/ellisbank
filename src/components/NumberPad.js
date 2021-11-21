@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components/native";
 import { MaterialIcons } from "@expo/vector-icons";
 
-import Text from '../components/Text'
+import Text from "../components/Text";
 
-const NumberPad = ({onPress}) => {
+const NumberPad = ({ onPress }) => {
   const buttons = [
     "1",
     "2",
@@ -22,7 +22,11 @@ const NumberPad = ({onPress}) => {
     <KeyPad>
       {buttons.map((item, index) => {
         return (
-          <Number key={index} onPress={() => onPress(item, idnex)} delayPressIn={0}>
+          <Number
+            key={index}
+            onPress={() => onPress(item, index)}
+            delayPressIn={0}
+          >
             <Text large heavy>
               {item}
             </Text>
@@ -34,23 +38,22 @@ const NumberPad = ({onPress}) => {
 };
 
 const KeyPad = styled.View`
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-end;
-    margin: 0 30px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 0 30px;
 `;
 
 const Number = styled.TouchableOpacity`
-    width: 64px;
-    height: 64px;
-    border-radius: 32px;
-    align-items: center;
-    justify-content: center;
-    margin: 5px 20px;
-    border-width: 1px;
-    border-color: #ffffff20;
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
+  align-items: center;
+  justify-content: center;
+  margin: 5px 20px;
+  border-width: 1px;
+  border-color: #ffffff20;
 `;
-
 
 export default NumberPad;
