@@ -45,7 +45,7 @@ const PinScreen = ({ navigation }) => {
       <Text center heavy medium margin="32px 0 0 0">
         Enter your PIN code.
       </Text>
-      <AccessPin> {renderPins()} </AccessPin>
+      <AccessPin>{renderPins()}</AccessPin>
       <Text center bold margin="8px 0 0 0" color="#9c9c9f">
         Forgot PIN?
       </Text>

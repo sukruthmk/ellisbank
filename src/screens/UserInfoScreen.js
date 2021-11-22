@@ -122,6 +122,8 @@ const UserDetailsItem = styled.View`
 
 const UserDetailsItemInfo = styled.View``;
 
-const AddressView = styled.View``;
+const AddressView = styled.View`
+  margin: 0 4px;
+`;
 
 export default UserInfo;

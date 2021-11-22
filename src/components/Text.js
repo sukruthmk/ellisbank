@@ -58,7 +58,7 @@ const Text = styled.Text`
 `;
 
 const TextStyle = ({ ...props }) => {
-  return <Text {...props}>{props.children}</Text>
+  return <Text {...props}>{props.children}</Text>;
 };
 
 export default TextStyle;

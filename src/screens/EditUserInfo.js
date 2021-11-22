@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components/native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 import Text from "../components/Text";
+import Input from "../components/Input";
 
 import userData from "../db/user.json";
 
@@ -27,68 +29,70 @@ const EditUserInfo = ({ navigation }) => {
           <Text>{userData[0].name_first}</Text>
         </Welcome>
       </Header>
-      <FormView>
-        <FormViewContent>
-          <Text heavy>First Name</Text>
-          <Input
-            placeholder="Enter your first name"
-            onChangeText={onFirstNameChange}
-            value={firstName}
-          />
-        </FormViewContent>
-        <FormViewContent>
-          <Text heavy>Last Name</Text>
-          <Input
-            placeholder="Enter your last name"
-            onChangeText={onLastNameChange}
-            value={lastName}
-          />
-        </FormViewContent>
-        <FormViewContent>
-          <Text heavy>Street</Text>
-          <Input
-            placeholder="Enter your street address"
-            onChangeText={onStreetChange}
-            value={street}
-          />
-        </FormViewContent>
-        <FormViewContent>
-          <Text heavy>City</Text>
-          <Input
-            placeholder="Enter your city"
-            onChangeText={onCityChange}
-            value={city}
-          />
-        </FormViewContent>
-        <FormViewContent>
-          <Text heavy>state</Text>
-          <Input
-            placeholder="Enter your state"
-            onChangeText={onStateChange}
-            value={state}
-          />
-        </FormViewContent>
-        <FormViewContent>
-          <Text heavy>Phone</Text>
-          <Input
-            placeholder="Enter your phone"
-            onChangeText={onPhoneChange}
-            value={phone}
-          />
-        </FormViewContent>
-        <FormViewContent>
-          <Text heavy>Email</Text>
-          <Input
-            placeholder="Enter your email"
-            onChangeText={onEmailChange}
-            value={email}
-          />
-        </FormViewContent>
-      </FormView>
-      <SaveButton
-        title="Save"
-        onPress={() => navigation.navigate("UserInfo")}
-      />
+      <KeyboardAwareScrollView>
+        <FormView>
+          <FormViewContent>
+            <Text heavy>First Name</Text>
+            <Input
+              placeholder="Enter your first name"
+              onChangeText={onFirstNameChange}
+              value={firstName}
+            />
+          </FormViewContent>
+          <FormViewContent>
+            <Text heavy>Last Name</Text>
+            <Input
+              placeholder="Enter your last name"
+              onChangeText={onLastNameChange}
+              value={lastName}
+            />
+          </FormViewContent>
+          <FormViewContent>
+            <Text heavy>Street</Text>
+            <Input
+              placeholder="Enter your street address"
+              onChangeText={onStreetChange}
+              value={street}
+            />
+          </FormViewContent>
+          <FormViewContent>
+            <Text heavy>City</Text>
+            <Input
+              placeholder="Enter your city"
+              onChangeText={onCityChange}
+              value={city}
+            />
+          </FormViewContent>
+          <FormViewContent>
+            <Text heavy>State</Text>
+            <Input
+              placeholder="Enter your state"
+              onChangeText={onStateChange}
+              value={state}
+            />
+          </FormViewContent>
+          <FormViewContent>
+            <Text heavy>Phone</Text>
+            <Input
+              placeholder="Enter your phone"
+              onChangeText={onPhoneChange}
+              value={phone}
+            />
+          </FormViewContent>
+          <FormViewContent>
+            <Text heavy>Email</Text>
+            <Input
+              placeholder="Enter your email"
+              onChangeText={onEmailChange}
+              value={email}
+            />
+          </FormViewContent>
+        </FormView>
+        <SaveButton
+          title="Save"
+          onPress={() => navigation.navigate("UserInfo")}
+        />
+      </KeyboardAwareScrollView>
     </Container>
   );
 };
@@ -122,13 +126,6 @@ const FormView = styled.View`
 
 const FormViewContent = styled.View`
   padding-bottom: 16px;
-`;
-
-const Input = styled.TextInput`
-  flex: 1;
-  padding: 8px 16px;
-  font-family: "Avenir";
-  color: #dbdbdb;
 `;
 
 const SaveButton = styled.Button``;
