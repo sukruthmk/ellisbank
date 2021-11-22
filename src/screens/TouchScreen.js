@@ -11,12 +11,12 @@ export default function TouchScreen({ navigation }) {
         ellisbank
       </Text>
 
-      <Touch onLongPress={() => navigation.navigate("Tabs")} delayPressIn={0}>
+      <Touch onPress={() => navigation.navigate("Pin")}>
         <Circle bgColor="#1e1e1e">
           <Circle bgColor="#5196F405">
             <Circle bgColor="#51964F10">
               <Circle bgColor="#5196F430">
-                <TouchButton>
+                <TouchButton onPress={() => navigation.navigate("Pin")}>
                   <MaterialIcons name="fingerprint" size={64} color="#ffffff" />
                 </TouchButton>
               </Circle>
