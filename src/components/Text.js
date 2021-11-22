@@ -13,7 +13,6 @@ const handleFontSize = ({ title, large, medium, small, tiny }) => {
       return "11px";
     case tiny:
       return "10px";
-
     default:
       return "13px";
   }
@@ -29,7 +28,6 @@ const handleFontWeight = ({ light, bold, heavy, black }) => {
       return `700`;
     case black:
       return `900`;
-
     default:
       return `400`;
   }
@@ -60,7 +58,7 @@ const Text = styled.Text`
 `;
 
 const TextStyle = ({ ...props }) => {
-  return <Text {...props}>{props.children}</Text>;
+  return <Text {...props}>{props.children}</Text>
 };
 
 export default TextStyle;

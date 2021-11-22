@@ -45,22 +45,17 @@ const PinScreen = ({ navigation }) => {
       <Text center heavy medium margin="32px 0 0 0">
         Enter your PIN code.
       </Text>
-
       <AccessPin> {renderPins()} </AccessPin>
-
       <Text center bold margin="8px 0 0 0" color="#9c9c9f">
         Forgot PIN?
       </Text>
-
       <UseTouch onPress={() => navigation.navigate("Touch")}>
         <Fontisto name="locked" color="#964ff0" size={16} />
         <Text bold margin="0 0 0 8px" color="#964ff0">
           Use Touch ID
         </Text>
       </UseTouch>
-
       <NumberPad onPress={pressKey} />
-
       <StatusBar barStyle="light-content" />
     </Container>
   );
