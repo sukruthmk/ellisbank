@@ -7,13 +7,10 @@ import Text from "../components/Text";
 import userData from "../db/user.json";
 import accountData from "../db/account.json";
 
-const UserInfo = () => {
+const UserInfo = ({ navigation }) => {
   const displayDetails = [
     { key: "name_first", name: "First name" },
     { key: "name_last", name: "Last name" },
-    // { key: "address_street", name: "Address street" },
-    // { key: "address_city", name: "City" },
-    // { key: "address_state", name: "State" },
     { key: "phone", name: "Phone" },
     { key: "email", name: "email" },
   ];
@@ -31,6 +28,7 @@ const UserInfo = () => {
       <Text heavy>{item.value}</Text>
     </UserDetailsItem>
   );
+
   return (
     <Container>
       <Header>
@@ -38,7 +36,7 @@ const UserInfo = () => {
         <Welcome>
           <Text>{userData[0].name_first}</Text>
         </Welcome>
-        <TouchButton>
+        <TouchButton onPress={() => navigation.navigate("EditUserInfo")}>
           <MaterialIcons name="edit" size={24} color="#5196f4" />
         </TouchButton>
       </Header>
@@ -125,6 +123,5 @@ const UserDetailsItem = styled.View`
 const UserDetailsItemInfo = styled.View``;
 
 const AddressView = styled.View``;
-
 
 export default UserInfo;
